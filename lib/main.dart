@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:rest_api_flutter/view/home_page.dart';
-import 'package:rest_api_flutter/view/petani_page.dart';
+import 'package:rest_api_flutter/view/presence_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -32,7 +32,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    PetaniPage(),
+    PresencePage(),
     HomePage(),
     HomePage(),
   ];

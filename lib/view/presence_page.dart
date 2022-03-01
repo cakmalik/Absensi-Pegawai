@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PetaniPage extends StatefulWidget {
-  const PetaniPage({Key? key}) : super(key: key);
+class PresencePage extends StatefulWidget {
+  const PresencePage({Key? key}) : super(key: key);
 
   @override
-  _PetaniPageState createState() => _PetaniPageState();
+  _PresencePageState createState() => _PresencePageState();
 }
 
-class _PetaniPageState extends State<PetaniPage> {
+class _PresencePageState extends State<PresencePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
