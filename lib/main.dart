@@ -1,9 +1,21 @@
+import 'dart:io';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:rest_api_flutter/view/home_page.dart';
+import 'package:rest_api_flutter/view/input_jurnal.dart';
 import 'package:rest_api_flutter/view/presence_page.dart';
 
 void main() => runApp(const MyApp());
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,9 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: MyStatefulWidget(),
+      routes: {
+        '/riwayat': (context) => const PresencePage(),
+      },
     );
   }
 }
@@ -34,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const List<Widget> _widgetOptions = <Widget>[
     PresencePage(),
     HomePage(),
-    HomePage(),
+    Jurnal(),
   ];
 
   void _onItemTapped(int index) {
